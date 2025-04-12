@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Modal Example</title>
+<style>
+/* Modal container */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #d9d9d9;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  max-width: 500px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  position: relative;
+}
+
+/* Logo (image) */
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Para magkasya ang image sa loob ng div */
+}
+
+/* Title */
+.modal-title {
+  text-align: left;
+  font-size: 20px;
+  margin-left: 60px;
+  margin-bottom: 20px;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Query list */
+.query-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.query-list li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #000;
+}
+
+.query-list a {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* Exit button */
+.exit-button {
+  background-color: #d9d9d9;
+  color: #333;
+  padding: 8px 16px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+}
+
+/* Show the modal */
+.show-modal {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<button id="myBtn">CLOSE Modal</button>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <div class="logo">
+      <img src="URL_NG_IYONG_LOGO" alt="Logo"> </div>
+    <h2 class="modal-title">QUERIES</h2>
+    <ul class="query-list">
+      <li><a href="#">Q: A1 - List of Trips with Pending POD's</a></li>
+      <li><a href="#">Q: A2 - List of Trips Per Client</a></li>
+      <li><a href="#">Q: A3 - List of Unliquidated Trips</a></li>
+      <li><a href="#">Q: A4 - Summary of Budget Spent</a></li>
+      <li><a href="#">Q: H1 - List of Trips</a></li>
+      <li><a href="#">Q: H2 - Trips Details Per Personnel</a></li>
+      <li><a href="#">Q: M1 - Fuel Consumpetion</a></li>
+      <li><a href="#">Q: M2 - Truck Mileage</a></li>
+    </ul>
+    <button class="exit-button" id="closeModal">Exit</button>
+  </div>
+</div>
+
+<script>
+// JavaScript code remains the same
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementById("closeModal");
+
+btn.onclick = function() {
+  modal.classList.add('show-modal');
+}
+
+span.onclick = function() {
+  modal.classList.remove('show-modal');
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.classList.remove('show-modal');
+  }
+}
+</script>
+
+</body>
+</html>
